@@ -1,4 +1,5 @@
 ﻿using SisAcad.Dominio.Entidades;
+using SisAcad.Persistencia.Config;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -28,6 +29,15 @@ namespace SisAcad.Persistencia
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
+            /*
+            Adicionar configurações específicas por entidade:
+            */
+            modelBuilder.Configurations.Add(new CursoConfig());
+            modelBuilder.Configurations.Add(new ProfessorConfig());
+            modelBuilder.Configurations.Add(new TurmaConfig());
+            modelBuilder.Configurations.Add(new AlunoConfig());
+            modelBuilder.Configurations.Add(new UsuarioConfig());
+            
             //Todas as propriedades strings dos tipos refletidos no banco serão colunas do tipo varchar (não mais 'nvarchar') e com tamanho máximo padrão 100 (não mais 'max')
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasColumnType("varchar")

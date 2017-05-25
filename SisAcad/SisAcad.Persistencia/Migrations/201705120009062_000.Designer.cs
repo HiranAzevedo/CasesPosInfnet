@@ -7,13 +7,13 @@ namespace SisAcad.Persistencia.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _001 : IMigrationMetadata
+    public sealed partial class _000 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_001));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_000));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705050047175_001"; }
+            get { return "201705120009062_000"; }
         }
         
         string IMigrationMetadata.Source

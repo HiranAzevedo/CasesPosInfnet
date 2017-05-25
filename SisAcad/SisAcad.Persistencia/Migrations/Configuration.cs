@@ -1,5 +1,6 @@
 namespace SisAcad.Persistencia.Migrations
 {
+    using Dominio.Entidades;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -16,18 +17,24 @@ namespace SisAcad.Persistencia.Migrations
 
         protected override void Seed(SisAcad.Persistencia.SisAcadDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            Professor p1 = new Professor();
+            p1.Nome = "Carlos Pivotto";
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            Professor p2 = new Professor();
+            p2.Nome = "Aquino Botelho";
+
+            Curso c1 = new Curso();
+            c1.Descricao = "Eng. Softw. .NET";
+            c1.Professores.Add(p1);
+            c1.Professores.Add(p2);
+
+            Curso c2 = new Curso();
+            c2.Descricao = "Eng. Softw. Java";
+            c2.Professores.Add(p1);
+            c2.Professores.Add(p2);
+
+            context.Cursos.Add(c1);
+            context.Cursos.Add(c2);
         }
     }
 }
