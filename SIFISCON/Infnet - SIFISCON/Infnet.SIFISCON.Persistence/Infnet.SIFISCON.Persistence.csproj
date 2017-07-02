@@ -50,12 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Context\SIFISCONContext.cs" />
+    <Compile Include="Context\SIFISCONInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infnet.SIFISCON.Domain\Infnet.SIFISCON.Domain.csproj">
+      <Project>{208D9195-399E-4B61-A099-7F279E8CAFAA}</Project>
+      <Name>Infnet.SIFISCON.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

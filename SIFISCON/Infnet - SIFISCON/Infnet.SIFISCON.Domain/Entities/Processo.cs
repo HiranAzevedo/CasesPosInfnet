@@ -19,10 +19,10 @@ namespace Infnet.SIFISCON.Domain.Entities
         public int FornecedorId { get; set; }
 
         public virtual Fornecedor Fornecedor { get; set; }
-
-        [ForeignKey(nameof(AutoDeInfracao))]
+                
         public int AutoDeInfracaoId { get; set; }
 
+        [ForeignKey(nameof(AutoDeInfracaoId))]
         public virtual AutoDeInfracao AutoDeInfracao { get; set; }
     }
 }

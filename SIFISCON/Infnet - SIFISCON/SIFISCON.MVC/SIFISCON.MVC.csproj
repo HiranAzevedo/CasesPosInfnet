@@ -232,6 +232,16 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infnet.SIFISCON.Domain\Infnet.SIFISCON.Domain.csproj">
+      <Project>{208d9195-399e-4b61-a099-7f279e8cafaa}</Project>
+      <Name>Infnet.SIFISCON.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infnet.SIFISCON.Persistence\Infnet.SIFISCON.Persistence.csproj">
+      <Project>{13859D3B-832B-4A1B-B26A-26A1DABACE78}</Project>
+      <Name>Infnet.SIFISCON.Persistence</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

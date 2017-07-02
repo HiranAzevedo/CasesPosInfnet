@@ -6,7 +6,7 @@ namespace Infnet.SIFISCON.Domain.Entities
     public class Endereco
     {
         [Key]
-        public int EnderecoId { get; set; }
+        public int Id { get; set; }
 
         public string Logradouro { get; set; }
 
@@ -22,7 +22,7 @@ namespace Infnet.SIFISCON.Domain.Entities
 
         public string UF { get; set; }
 
-        [ForeignKey(name: nameof(Fornecedor))]
+        [ForeignKey(nameof(Fornecedor))]
         public int FornecedorId { get; set; }
 
         public virtual Fornecedor Fornecedor { get; set; }

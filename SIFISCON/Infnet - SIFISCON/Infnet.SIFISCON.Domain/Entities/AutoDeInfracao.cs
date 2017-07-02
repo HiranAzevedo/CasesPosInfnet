@@ -5,7 +5,7 @@ namespace Infnet.SIFISCON.Domain.Entities
 {
     public class AutoDeInfracao
     {
-        [Key]
+        [Key, ForeignKey(nameof(Processo))]
         public int Id { get; set; }
 
         public int Gravidade { get; set; }
@@ -15,9 +15,6 @@ namespace Infnet.SIFISCON.Domain.Entities
         public bool Agravante { get; set; }
 
         public decimal Multa { get; set; }
-
-        [ForeignKey(nameof(Processo))]
-        public int ProcessoId { get; set; }
 
         public virtual Processo Processo { get; set; }
     }
