@@ -90,8 +90,6 @@ namespace SIFISCON.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditPost(int? id)
         {
-            ViewBag.FornecedorId = new SelectList(db.Fornecedor, "Id", "Cnpj", produto.FornecedorId);
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
