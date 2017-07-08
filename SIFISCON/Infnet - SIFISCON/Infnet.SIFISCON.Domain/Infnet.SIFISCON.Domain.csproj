@@ -52,7 +52,15 @@
     <Compile Include="Entities\Processo.cs" />
     <Compile Include="Entities\Produto.cs" />
     <Compile Include="Entities\Fornecedor.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Service\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AutoDeInfracaoService.cs" />
+    <Compile Include="Services\EnderecoService.cs" />
+    <Compile Include="Services\FornecedorService.cs" />
+    <Compile Include="Services\ProcessoService.cs" />
+    <Compile Include="Services\ProdutoService.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

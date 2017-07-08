@@ -5,8 +5,8 @@ namespace Infnet.SIFISCON.Domain.Entities
 {
     public class AutoDeInfracao
     {
-        [Key, ForeignKey(nameof(Processo))]
-        public int Id { get; set; }
+        [Key, ForeignKey(nameof(Processo)), DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public string Id { get; set; }
 
         public int Gravidade { get; set; }
 
