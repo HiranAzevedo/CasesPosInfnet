@@ -5,7 +5,7 @@ namespace ProjetoModeloDDD.Domain.Entities
 {
     public class Perfil
     {
-        [Key]
+        [Key, ForeignKey(nameof(Conta))]
         public int IdConta { get; set; }
 
         public string Nome { get; set; }
@@ -14,7 +14,6 @@ namespace ProjetoModeloDDD.Domain.Entities
 
         public string Local { get; set; }
 
-        [ForeignKey(nameof(IdConta))]
         public virtual Conta Conta { get; set; }
     }
 }
