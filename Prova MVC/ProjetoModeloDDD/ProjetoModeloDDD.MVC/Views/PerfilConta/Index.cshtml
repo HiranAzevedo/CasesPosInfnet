@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjetoModeloDDD.MVC.ViewModels.PerfilContaViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SobreNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Local)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SobreNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Local)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdConta }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdConta }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdConta })
+        </td>
+    </tr>
+}
+
+</table>

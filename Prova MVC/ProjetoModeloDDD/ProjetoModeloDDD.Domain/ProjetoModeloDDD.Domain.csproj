@@ -32,19 +32,28 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Cliente.cs" />
-    <Compile Include="Entities\Produto.cs" />
-    <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
+    <Compile Include="Entities\Comentario.cs" />
+    <Compile Include="Entities\Conta.cs" />
+    <Compile Include="Entities\Perfil.cs" />
+    <Compile Include="Entities\Publicacao.cs" />
+    <Compile Include="Interfaces\Repositories\IComentarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPerfilRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPublicacaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\Services\IProdutoService.cs" />
+    <Compile Include="Interfaces\Services\IComentarioService.cs" />
+    <Compile Include="Interfaces\Services\IContaService.cs" />
+    <Compile Include="Interfaces\Services\IPerfilService.cs" />
+    <Compile Include="Interfaces\Services\IPublicacaoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interfaces\Services\IClienteService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
-    <Compile Include="Services\ClienteService.cs" />
-    <Compile Include="Services\ProdutoService.cs" />
+    <Compile Include="Services\ComentarioService.cs" />
+    <Compile Include="Services\ContaService.cs" />
+    <Compile Include="Services\PerfilService.cs" />
+    <Compile Include="Services\PublicacaoService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup />

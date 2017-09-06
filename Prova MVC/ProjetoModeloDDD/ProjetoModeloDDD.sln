@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{C4321963-6D21-4877-99B6-907D577467AD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{DBD78CD7-0B51-48B0-A18D-0B8C003A45FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{B6DF82D3-773D-4963-BA85-390FC90F48EA}"
 EndProject
@@ -58,5 +56,8 @@ Global
 		{E153AB2E-8E96-473E-8E8E-B1160196DCC6} = {D37B010D-8671-4E0E-8911-12126E032723}
 		{19744BF7-D460-4DC9-9BB6-3A582AD8C115} = {D34611E3-6918-4807-9E75-86C55736E295}
 		{D64CDB50-91F5-45B2-AC31-FE284D2D8992} = {B6DF82D3-773D-4963-BA85-390FC90F48EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDE80776-B727-4947-BA1B-1FE18CD1EF57}
 	EndGlobalSection
 EndGlobal

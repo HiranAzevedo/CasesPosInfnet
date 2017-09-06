@@ -41,12 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppServiceBase.cs" />
-    <Compile Include="ClienteAppService.cs" />
-    <Compile Include="Interface\IClienteAppService.cs" />
+    <Compile Include="ComentarioAppService.cs" />
+    <Compile Include="ContaAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
-    <Compile Include="Interface\IProdutoAppService.cs" />
-    <Compile Include="ProdutoAppService.cs" />
+    <Compile Include="Interface\IComentarioAppService.cs" />
+    <Compile Include="Interface\IContaAppService.cs" />
+    <Compile Include="Interface\IPerfilAppService.cs" />
+    <Compile Include="Interface\IPublicacaoAppService.cs" />
+    <Compile Include="PerfilAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicacaoAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoModeloDDD.Domain\ProjetoModeloDDD.Domain.csproj">

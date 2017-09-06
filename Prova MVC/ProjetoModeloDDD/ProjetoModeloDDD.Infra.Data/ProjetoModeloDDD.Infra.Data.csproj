@@ -50,12 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ProjetoModeloContext.cs" />
-    <Compile Include="EntityConfig\ClienteConfiguration.cs" />
-    <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ClienteRepository.cs" />
-    <Compile Include="Repositories\ProdutoRepository.cs" />
+    <Compile Include="Repositories\ComentarioRepository.cs" />
+    <Compile Include="Repositories\ContaRepository.cs" />
+    <Compile Include="Repositories\PerfilRepository.cs" />
+    <Compile Include="Repositories\PublicacaoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
