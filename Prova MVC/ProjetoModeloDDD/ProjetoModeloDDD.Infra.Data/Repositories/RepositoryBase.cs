@@ -1,11 +1,9 @@
-﻿using ProjetoModeloDDD.Infra.Data.Context;
+﻿using ProjetoModeloDDD.Domain.Interfaces.Repositories;
+using ProjetoModeloDDD.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
-using ProjetoModeloDDD.Domain.Interfaces.Repositories;
+using System.Linq;
 
 namespace ProjetoModeloDDD.Infra.Data.Repositories
 {
@@ -44,7 +42,7 @@ namespace ProjetoModeloDDD.Infra.Data.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Db.Dispose();
         }
     }
 }

@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProjetoModeloDDD.Domain.Entities;
+using System;
 using System.Data.Entity;
-using ProjetoModeloDDD.Domain.Entities;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using ProjetoModeloDDD.Infra.Data.EntityConfig;
+using System.Linq;
 
 namespace ProjetoModeloDDD.Infra.Data.Context
 {
     public class ProjetoModeloContext : DbContext
     {
-        public ProjetoModeloContext() : base("ProjetoModeloDDD")
-        {
-
-        }
+        public ProjetoModeloContext() : base(nameof(ProjetoModeloDDD))
+        { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,8 +21,6 @@ namespace ProjetoModeloDDD.Infra.Data.Context
             modelBuilder.Properties<String>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<String>().Configure(p => p.HasMaxLength(100));
 
-            modelBuilder.Configurations.Add(new ClienteConfiguration());
-            modelBuilder.Configurations.Add(new ProdutoConfiguration());
         }
 
         public override int SaveChanges()
@@ -48,8 +40,13 @@ namespace ProjetoModeloDDD.Infra.Data.Context
             }
             return base.SaveChanges();
         }
-        
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Produto> Produtos { get; set; }
+
+        public DbSet<Perfil> Perfil { get; set; }
+
+        public DbSet<Conta> Conta { get; set; }
+
+        public DbSet<Comentario> Comentario { get; set; }
+
+        public DbSet<Publicacao> Publicacao { get; set; }
     }
 }

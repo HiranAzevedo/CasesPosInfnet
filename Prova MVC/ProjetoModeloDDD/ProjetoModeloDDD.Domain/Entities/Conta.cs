@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoModeloDDD.Domain.Entities
 {
     public class Conta
     {
+        [Key]
         public int IdConta { get; set; }
 
         public string NomeUsuario { get; set; }
