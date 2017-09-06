@@ -74,6 +74,8 @@ namespace ProjetoModeloDDD.MVC.Controllers
                 var perfil = PerfilContaMapper.ExtractPerfilFromViewModel(perfilContaViewModel);
 
                 contaApp.Add(conta);
+
+                perfil.IdConta = conta.IdConta;
                 perfilApp.Add(perfil);
 
                 return RedirectToAction(nameof(Index));
@@ -105,7 +107,7 @@ namespace ProjetoModeloDDD.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Nome,SobreNome,NomeUsuario,Senha,Local")] PerfilContaViewModel perfilContaViewModel)
+        public ActionResult Edit([Bind(Include = "IdConta,Nome,SobreNome,NomeUsuario,Senha,Local")] PerfilContaViewModel perfilContaViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -146,8 +148,8 @@ namespace ProjetoModeloDDD.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            contaApp.Remove(contaApp.GetById(id));
             perfilApp.Remove(perfilApp.GetById(id));
+            contaApp.Remove(contaApp.GetById(id));
 
             return RedirectToAction(nameof(Index));
         }
