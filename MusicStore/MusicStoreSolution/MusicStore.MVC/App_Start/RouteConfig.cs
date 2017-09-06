@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MusicStore.MVC
+namespace MusicStore.Mvc
 {
     public class RouteConfig
     {

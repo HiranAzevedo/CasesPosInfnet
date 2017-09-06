@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MusicStore.MVC")]
+[assembly: AssemblyTitle("MusicStore.Mvc")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MusicStore.MVC")]
+[assembly: AssemblyProduct("MusicStore.Mvc")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("aa8db2ee-156e-4276-9dc4-28af153258a9")]
+[assembly: Guid("13c17a96-8d5e-48f9-9158-8c978e0e756e")]
 
 // Version information for an assembly consists of the following four values:
 //

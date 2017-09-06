@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace MusicStore.Domain.Entities
 {
     public class Order
     {
-        [Key]
         public int OrderId { get; set; }
 
         public DateTime OrderDate { get; set; }
@@ -33,8 +31,6 @@ namespace MusicStore.Domain.Entities
 
         public decimal Total { get; set; }
 
-        //Relations
-
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItens { get; set; }
     }
 }
