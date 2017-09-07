@@ -11,7 +11,7 @@ namespace ConsoleRequester
         {
             const string omsOrderId = "NumeroPedido";
 
-            var httpResponse = HttpClient.GetAsync("http://zeedog.vtexcommercestable.com.br", $"api/oms/pvt/orders/{omsOrderId}?an=zeedog", BuildAuthenticationHeaders(null)).Result;
+            var httpResponse = HttpClient.GetAsync("http://{nomedaloja}.vtexcommercestable.com.br", $"api/oms/pvt/orders/{omsOrderId}", BuildAuthenticationHeaders(null)).Result;
 
             if (!httpResponse.IsSuccessStatusCode)
             {
@@ -22,7 +22,7 @@ namespace ConsoleRequester
                 }
                 if (httpResponse.StatusCode == HttpStatusCode.Forbidden)
                 {
-                    throw new Exception("Acesso negado, as permissões da chave de integração foram retiradas");
+                    throw new Exception("Acesso negado, as permissões da chave foram retiradas");
                 }
 
                 throw new Exception(httpResponse.Content);
