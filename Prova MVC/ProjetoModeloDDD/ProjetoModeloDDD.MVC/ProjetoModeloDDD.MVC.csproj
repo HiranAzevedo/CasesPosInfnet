@@ -185,12 +185,15 @@
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfilContaController.cs" />
+    <Compile Include="Controllers\PublicacaoComentarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mapper\PerfilContaMapper.cs" />
+    <Compile Include="Mapper\PublicacaoComentarioMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\PerfilContaViewModel.cs" />
+    <Compile Include="ViewModels\PublicacaoComentarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ProjetoModeloDDD.mdf" />
@@ -264,6 +267,11 @@
     <Content Include="Views\PerfilConta\Details.cshtml" />
     <Content Include="Views\PerfilConta\Edit.cshtml" />
     <Content Include="Views\PerfilConta\Index.cshtml" />
+    <Content Include="Views\PublicacaoComentario\Create.cshtml" />
+    <Content Include="Views\PublicacaoComentario\Delete.cshtml" />
+    <Content Include="Views\PublicacaoComentario\Details.cshtml" />
+    <Content Include="Views\PublicacaoComentario\Edit.cshtml" />
+    <Content Include="Views\PublicacaoComentario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

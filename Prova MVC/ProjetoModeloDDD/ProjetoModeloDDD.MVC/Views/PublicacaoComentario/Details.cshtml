@@ -1,0 +1,39 @@
+﻿@model ProjetoModeloDDD.MVC.ViewModels.PublicacaoComentarioViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PublicacaoComentarioViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPerfil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPerfil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicacaoText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicacaoText)
+        </dd>
+
+        @foreach (var comentario in Model.Comentarios)
+        {
+            <dt>Comentario</dt>
+            <dd>@comentario.Text</dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPublicacao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
