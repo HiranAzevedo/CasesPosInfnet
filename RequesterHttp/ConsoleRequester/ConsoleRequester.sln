@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRequester", "ConsoleRequester\ConsoleRequester.csproj", "{E916511C-B62E-49DF-B0D7-EF9F1B33A60B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E916511C-B62E-49DF-B0D7-EF9F1B33A60B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E916511C-B62E-49DF-B0D7-EF9F1B33A60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E916511C-B62E-49DF-B0D7-EF9F1B33A60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E916511C-B62E-49DF-B0D7-EF9F1B33A60B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B46727E0-61F5-47E6-8FC3-6681A64EF6B4}
+	EndGlobalSection
+EndGlobal
