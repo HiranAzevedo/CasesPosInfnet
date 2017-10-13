@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Infnet.MusicStore.Context;
+using Infnet.MusicStore.Models;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Infnet.MusicStore.Context;
-using Infnet.MusicStore.Models;
 
 namespace Infnet.MusicStore.Controllers
 {
+    [RoutePrefix("api/musicstore/album")]
     public class AlbumApiController : ApiController
     {
         private MusicStoreContext db = new MusicStoreContext();
 
         // GET: api/AlbumApi
-        public IQueryable<Album> GetAlbum()
+        [HttpGet, ResponseType(typeof(Album))]
+        public async Task<IHttpActionResult> GetAlbum()
         {
-            return db.Album;
+            return Ok(await db.Album.Include(x => x.Artist).ToListAsync());
         }
 
         // GET: api/AlbumApi/5
-        [ResponseType(typeof(Album))]
+        [ResponseType(typeof(Album)), HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAlbum(int id)
         {
             Album album = await db.Album.FindAsync(id);
@@ -38,7 +36,7 @@ namespace Infnet.MusicStore.Controllers
         }
 
         // PUT: api/AlbumApi/5
-        [ResponseType(typeof(void))]
+        [ResponseType(typeof(void)), Route("{id}"), HttpPut]
         public async Task<IHttpActionResult> PutAlbum(int id, Album album)
         {
             if (!ModelState.IsValid)
@@ -73,7 +71,7 @@ namespace Infnet.MusicStore.Controllers
         }
 
         // POST: api/AlbumApi
-        [ResponseType(typeof(Album))]
+        [ResponseType(typeof(Album)), HttpPost, Route("album")]
         public async Task<IHttpActionResult> PostAlbum(Album album)
         {
             if (!ModelState.IsValid)
@@ -88,7 +86,7 @@ namespace Infnet.MusicStore.Controllers
         }
 
         // DELETE: api/AlbumApi/5
-        [ResponseType(typeof(Album))]
+        [ResponseType(typeof(Album)), HttpDelete, Route("album")]
         public async Task<IHttpActionResult> DeleteAlbum(int id)
         {
             Album album = await db.Album.FindAsync(id);

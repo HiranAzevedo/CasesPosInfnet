@@ -186,8 +186,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Context\MusicStoreContext.cs" />
     <Compile Include="Controllers\AlbumApiController.cs" />
+    <Compile Include="Controllers\ArtistApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DbAccess\AlbumDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
