@@ -184,12 +184,24 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Context\MusicStoreContext.cs" />
+    <Compile Include="Controllers\AlbumApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DbAccess\AlbumDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710132320260_InitialMigration.cs" />
+    <Compile Include="Migrations\201710132320260_InitialMigration.Designer.cs">
+      <DependentUpon>201710132320260_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +281,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710132320260_InitialMigration.resx">
+      <DependentUpon>201710132320260_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

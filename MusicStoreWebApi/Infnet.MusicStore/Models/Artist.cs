@@ -5,17 +5,14 @@ using System.ComponentModel.DataAnnotations;
 namespace Infnet.MusicStore.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class Genre
+    public class Artist
     {
-        [JsonProperty("GenreId")]
         [Key]
-        public int GenreId { get; set; }
+        [JsonProperty("ArtistId")]
+        public int ArtistId { get; set; }
 
         [JsonProperty("Name")]
         public string Name { get; set; }
-
-        [JsonProperty("Descritpion")]
-        public string Description { get; set; }
 
         public virtual ICollection<Album> Albuns { get; set; }
     }
