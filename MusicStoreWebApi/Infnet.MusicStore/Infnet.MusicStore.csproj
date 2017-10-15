@@ -197,6 +197,10 @@
     <Compile Include="Migrations\201710132320260_InitialMigration.Designer.cs">
       <DependentUpon>201710132320260_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710151939042_changeArtistAlbumToManyToMany.cs" />
+    <Compile Include="Migrations\201710151939042_changeArtistAlbumToManyToMany.Designer.cs">
+      <DependentUpon>201710151939042_changeArtistAlbumToManyToMany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -287,6 +291,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710132320260_InitialMigration.resx">
       <DependentUpon>201710132320260_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710151939042_changeArtistAlbumToManyToMany.resx">
+      <DependentUpon>201710151939042_changeArtistAlbumToManyToMany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

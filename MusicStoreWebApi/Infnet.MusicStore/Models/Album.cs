@@ -15,9 +15,6 @@ namespace Infnet.MusicStore.Models
         [JsonProperty("GenreId")]
         public int GenreId { get; set; }
 
-        [JsonProperty("ArtistId")]
-        public int ArtistId { get; set; }
-
         [JsonProperty("Title")]
         public string Title { get; set; }
 
@@ -27,17 +24,15 @@ namespace Infnet.MusicStore.Models
         [JsonProperty("AlbumArtUrl")]
         public string AlbumArtUrl { get; set; }
 
-        [ForeignKey(nameof(ArtistId))]
-        [JsonProperty(nameof(Artist))]
-        public virtual Artist Artist { get; set; }
-
         [ForeignKey(nameof(GenreId))]
         public virtual Genre Genre { get; set; }
 
         [JsonProperty(nameof(Carts))]
         public virtual ICollection<Cart> Carts { get; set; }
 
-        [JsonProperty(nameof(OrderDetails))]
+        [JsonProperty(nameof(Artist))]
+        public virtual ICollection<Artist> Artist { get; set; }
+
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

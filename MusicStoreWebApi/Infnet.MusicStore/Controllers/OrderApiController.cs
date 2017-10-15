@@ -42,7 +42,7 @@ namespace Infnet.MusicStore.Controllers
 
         // PUT: api/OrderApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutOrder(int id, Order order)
+        public async Task<IHttpActionResult> PutOrderAsync(int id, Order order)
         {
             if (!ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace Infnet.MusicStore.Controllers
 
         // POST: api/OrderApi
         [ResponseType(typeof(Order))]
-        public async Task<IHttpActionResult> PostOrder(Order order)
+        public async Task<IHttpActionResult> PostOrderAsync(Order order)
         {
             if (!ModelState.IsValid)
             {
@@ -87,14 +87,15 @@ namespace Infnet.MusicStore.Controllers
             db.Order.Add(order);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = order.OrderId }, order);
+            return CreatedAtRoute("PostOrder", new { id = order.OrderId }, order);
         }
 
         // DELETE: api/OrderApi/5
         [ResponseType(typeof(Order))]
-        public async Task<IHttpActionResult> DeleteOrder(int id)
+        public async Task<IHttpActionResult> DeleteOrderAsync(int id)
         {
-            Order order = await db.Order.FindAsync(id);
+            var order = await db.Order.FindAsync(id);
+
             if (order == null)
             {
                 return NotFound();
