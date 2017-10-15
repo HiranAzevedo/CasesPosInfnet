@@ -28,13 +28,16 @@ namespace Infnet.MusicStore.Models
         public string AlbumArtUrl { get; set; }
 
         [ForeignKey(nameof(ArtistId))]
+        [JsonProperty(nameof(Artist))]
         public virtual Artist Artist { get; set; }
 
         [ForeignKey(nameof(GenreId))]
         public virtual Genre Genre { get; set; }
 
+        [JsonProperty(nameof(Carts))]
         public virtual ICollection<Cart> Carts { get; set; }
 
+        [JsonProperty(nameof(OrderDetails))]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -13,20 +13,20 @@ namespace Infnet.MusicStore.Controllers
     [RoutePrefix("api/musicstore/album")]
     public class AlbumApiController : ApiController
     {
-        private MusicStoreContext db = new MusicStoreContext();
+        private readonly MusicStoreContext db = new MusicStoreContext();
 
         // GET: api/AlbumApi
-        [HttpGet, ResponseType(typeof(Album))]
-        public async Task<IHttpActionResult> GetAlbum()
+        [HttpGet, ResponseType(typeof(Album)), Route("all")]
+        public IHttpActionResult GetAlbum()
         {
-            return Ok(await db.Album.Include(x => x.Artist).ToListAsync());
+            return Ok(db.Album);
         }
 
         // GET: api/AlbumApi/5
         [ResponseType(typeof(Album)), HttpGet, Route("{id}")]
-        public async Task<IHttpActionResult> GetAlbum(int id)
+        public async Task<IHttpActionResult> GetAlbumAsync(int id)
         {
-            Album album = await db.Album.FindAsync(id);
+            var album = await db.Album.FindAsync(id);
             if (album == null)
             {
                 return NotFound();
@@ -37,7 +37,7 @@ namespace Infnet.MusicStore.Controllers
 
         // PUT: api/AlbumApi/5
         [ResponseType(typeof(void)), Route("{id}"), HttpPut]
-        public async Task<IHttpActionResult> PutAlbum(int id, Album album)
+        public async Task<IHttpActionResult> PutAlbumAsync(int id, Album album)
         {
             if (!ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace Infnet.MusicStore.Controllers
 
         // POST: api/AlbumApi
         [ResponseType(typeof(Album)), HttpPost, Route("album")]
-        public async Task<IHttpActionResult> PostAlbum(Album album)
+        public async Task<IHttpActionResult> PostAlbumAsync(Album album)
         {
             if (!ModelState.IsValid)
             {
@@ -108,6 +108,7 @@ namespace Infnet.MusicStore.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+            db.Dispose();
         }
 
         private bool AlbumExists(int id)

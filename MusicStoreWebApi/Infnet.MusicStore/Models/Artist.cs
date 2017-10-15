@@ -8,12 +8,13 @@ namespace Infnet.MusicStore.Models
     public class Artist
     {
         [Key]
-        [JsonProperty("ArtistId")]
+        [JsonProperty(nameof(ArtistId))]
         public int ArtistId { get; set; }
 
-        [JsonProperty("Name")]
+        [JsonProperty(nameof(Name))]
         public string Name { get; set; }
 
+        [JsonProperty(nameof(Albuns))]
         public virtual ICollection<Album> Albuns { get; set; }
     }
 }
