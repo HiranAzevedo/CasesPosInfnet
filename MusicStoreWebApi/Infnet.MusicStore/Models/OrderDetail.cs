@@ -24,6 +24,7 @@ namespace Infnet.MusicStore.Models
         public decimal UnitPrice { get; set; }
 
         [ForeignKey(nameof(AlbumId))]
+        [JsonProperty(nameof(Album))]
         public virtual Album Album { get; set; }
 
         [ForeignKey(nameof(OrderId))]

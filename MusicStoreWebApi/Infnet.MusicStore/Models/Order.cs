@@ -46,6 +46,7 @@ namespace Infnet.MusicStore.Models
         [JsonProperty("Total")]
         public decimal Total { get; set; }
 
+        [JsonProperty(nameof(OrderDetail))]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

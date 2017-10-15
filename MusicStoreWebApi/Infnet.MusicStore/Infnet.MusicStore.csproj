@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -187,6 +188,7 @@
     <Compile Include="Context\MusicStoreContext.cs" />
     <Compile Include="Controllers\AlbumApiController.cs" />
     <Compile Include="Controllers\ArtistApiController.cs" />
+    <Compile Include="Controllers\OrderApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
