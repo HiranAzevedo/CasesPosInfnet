@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using WcfClient.OrderService;
 
@@ -12,9 +9,20 @@ namespace WcfClient
     {
         static void Main(string[] args)
         {
-            DoOrders();
+            DoOrders(0);
+
+            try
+            {
+                DoOrdersBroken(0);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
 
             var taskCollection = new List<Task>();
+
+            var taskNumber = default(int);
 
             for (int i = default(int); i < 100; i++)
             {
@@ -22,8 +30,11 @@ namespace WcfClient
                 {
                     try
                     {
-                        DoOrders();
-                        Console.WriteLine("Round");
+                        DoOrders(taskNumber);
+
+                        Console.WriteLine($"Thread {taskNumber}");
+
+                        taskNumber++;
                     }
                     catch (Exception ex)
                     {
@@ -37,7 +48,37 @@ namespace WcfClient
             Console.ReadLine();
         }
 
-        private static void DoOrders()
+        private static void DoOrdersBroken(int taskNumber)
+        {
+            using (var orderClient = new OrderServiceClient())
+            {
+                orderClient.ClientCredentials.UserName.UserName = "admin";
+                orderClient.ClientCredentials.UserName.Password = "admin";
+
+                var order = new Order
+                {
+                    ClientName = "Hiran",
+                    Items = new List<OrderItem>
+                    {
+                    new OrderItem{
+                    SkuId = "1",
+                    SkuQtd = 2,
+                    SkuSellPrice = 50m,
+                    }
+                    },
+                    OrderId = "1",
+                    OrderTotal = 20m,
+                    StoreName = "MyStore",
+                };
+
+                orderClient.PlaceOrder(order);
+                Console.WriteLine($"Fazendo pedido {taskNumber}");
+                orderClient.CancelOrder(order);
+                Console.WriteLine($"Cancelando {taskNumber}");
+            }
+        }
+
+        private static void DoOrders(int taskNumber)
         {
             using (var orderClient = new OrderServiceClient())
             {
@@ -61,9 +102,9 @@ namespace WcfClient
                 };
 
                 orderClient.PlaceOrder(order);
-                Console.WriteLine("Fazendo pedido");
+                Console.WriteLine($"Fazendo pedido {taskNumber}");
                 orderClient.CancelOrder(order);
-                Console.WriteLine("Cancelando");
+                Console.WriteLine($"Cancelando {taskNumber}");
             }
         }
     }
