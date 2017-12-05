@@ -61,26 +61,71 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <None Include="Connected Services\PriceService\PriceService.disco" />
+    <None Include="Connected Services\PriceService\configuration91.svcinfo" />
+    <None Include="Connected Services\PriceService\configuration.svcinfo" />
+    <None Include="Connected Services\PriceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\WarehouseService\WarehouseService.disco" />
+    <None Include="Connected Services\WarehouseService\configuration91.svcinfo" />
+    <None Include="Connected Services\WarehouseService\configuration.svcinfo" />
+    <None Include="Connected Services\WarehouseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="OrderService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="Connected Services\PriceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="Connected Services\WarehouseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\WcfOrderServiceLib\WcfOrderServiceLib.csproj">
+      <Project>{9721890a-8e4c-4fcb-a65a-3a25148f4a98}</Project>
+      <Name>WcfOrderServiceLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.config" />
+    <None Include="Connected Services\PriceService\PriceService.wsdl" />
+    <None Include="Connected Services\PriceService\PriceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PriceService\PriceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseService\WarehouseService.wsdl" />
+    <None Include="Connected Services\WarehouseService\WarehouseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseService\WarehouseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PriceService\" />
+    <WCFMetadataStorage Include="Connected Services\WarehouseService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

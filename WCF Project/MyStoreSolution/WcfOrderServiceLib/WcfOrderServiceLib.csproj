@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC598B69-33C3-4097-9B2C-992952DCD30A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>WcfClient</RootNamespace>
-    <AssemblyName>WcfClient</AssemblyName>
+    <ProjectGuid>{9721890A-8E4C-4FCB-A65A-3A25148F4A98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WcfOrderServiceLib</RootNamespace>
+    <AssemblyName>WcfOrderServiceLib</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -44,44 +42,73 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\OrderService\Reference.cs">
+    <Compile Include="Connected Services\PriceService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Connected Services\WarehouseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="IOrderService.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderService.cs" />
+    <Compile Include="OrderStorage.cs" />
+    <Compile Include="OrderValueDontMatchException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Connected Services\OrderService\OrderService.wsdl" />
-    <None Include="Connected Services\OrderService\OrderService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\OrderService\OrderService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\OrderService\OrderService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\OrderService\" />
+    <None Include="app.config" />
+    <None Include="Connected Services\PriceService\PriceService.wsdl" />
+    <None Include="Connected Services\PriceService\PriceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PriceService\PriceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseService\WarehouseService.wsdl" />
+    <None Include="Connected Services\WarehouseService\WarehouseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarehouseService\WarehouseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\OrderService\OrderService.disco" />
+    <WCFMetadataStorage Include="Connected Services\PriceService\" />
+    <WCFMetadataStorage Include="Connected Services\WarehouseService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\OrderService\configuration91.svcinfo" />
+    <None Include="Connected Services\PriceService\PriceService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\OrderService\configuration.svcinfo" />
+    <None Include="Connected Services\PriceService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\OrderService\Reference.svcmap">
+    <None Include="Connected Services\PriceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PriceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseService\WarehouseService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarehouseService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
