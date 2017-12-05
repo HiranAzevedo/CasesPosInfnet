@@ -12,27 +12,7 @@ namespace WcfClient
     {
         static void Main(string[] args)
         {
-            using (var orderClient = new OrderServiceClient())
-            {
-                var order = new Order
-                {
-                    ClientName = "Hiran",
-                    Items = new List<OrderItem>
-                    {
-                    new OrderItem{
-                    SkuId = "1",
-                    SkuQtd = 2,
-                    SkuSellPrice = 10m,
-                    }
-                    },
-                    OrderId = "1",
-                    OrderTotal = 20m,
-                    StoreName = "MyStore",
-                };
-
-                orderClient.PlaceOrder(order);
-                orderClient.CancelOrder(order);
-            }
+            DoOrders();
 
             var taskCollection = new List<Task>();
 
@@ -61,6 +41,9 @@ namespace WcfClient
         {
             using (var orderClient = new OrderServiceClient())
             {
+                orderClient.ClientCredentials.UserName.UserName = "admin";
+                orderClient.ClientCredentials.UserName.Password = "admin";
+
                 var order = new Order
                 {
                     ClientName = "Hiran",
