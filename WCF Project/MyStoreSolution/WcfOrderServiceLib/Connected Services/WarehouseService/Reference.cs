@@ -22,10 +22,10 @@ namespace WcfOrderServiceLib.WarehouseService {
         System.Threading.Tasks.Task<int> GetStockValueAsync(string skuId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouseService/SetStockValue", ReplyAction="http://tempuri.org/IWarehouseService/SetStockValueResponse")]
-        bool SetStockValue(string skuId, int Qtd);
+        void SetStockValue(string skuId, int Qtd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouseService/SetStockValue", ReplyAction="http://tempuri.org/IWarehouseService/SetStockValueResponse")]
-        System.Threading.Tasks.Task<bool> SetStockValueAsync(string skuId, int Qtd);
+        System.Threading.Tasks.Task SetStockValueAsync(string skuId, int Qtd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -63,11 +63,11 @@ namespace WcfOrderServiceLib.WarehouseService {
             return base.Channel.GetStockValueAsync(skuId);
         }
         
-        public bool SetStockValue(string skuId, int Qtd) {
-            return base.Channel.SetStockValue(skuId, Qtd);
+        public void SetStockValue(string skuId, int Qtd) {
+            base.Channel.SetStockValue(skuId, Qtd);
         }
         
-        public System.Threading.Tasks.Task<bool> SetStockValueAsync(string skuId, int Qtd) {
+        public System.Threading.Tasks.Task SetStockValueAsync(string skuId, int Qtd) {
             return base.Channel.SetStockValueAsync(skuId, Qtd);
         }
     }

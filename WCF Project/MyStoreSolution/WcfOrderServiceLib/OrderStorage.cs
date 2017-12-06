@@ -4,7 +4,7 @@ namespace WcfOrderServiceLib
 {
     public static class OrderStorage
     {
-        public static ConcurrentDictionary<string, Order> OrdersPlaced { get; set; }
+        public static ConcurrentDictionary<string, Order> OrdersPlaced = new ConcurrentDictionary<string, Order>();
 
         public static bool AddOrder(Order order)
         {
@@ -14,11 +14,6 @@ namespace WcfOrderServiceLib
         public static bool CancelOrder(Order order)
         {
             return OrdersPlaced.TryRemove(order.OrderId, out order);
-        }
-
-        static OrderStorage()
-        {
-            OrdersPlaced = new ConcurrentDictionary<string, Order>();
         }
     }
 }

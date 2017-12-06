@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using WcfOrderServiceLib.PriceService;
 using WcfOrderServiceLib.WarehouseService;
@@ -45,13 +46,22 @@ namespace WcfOrderServiceLib
                 {
                     foreach (var item in items)
                     {
-                        var currentStock = await warehouseClient.GetStockValueAsync(item.SkuId);
+                        var currentStock = warehouseClient.GetStockValue(item.SkuId);
 
-                        if (currentStock > item.SkuQtd)
+                        if (currentStock == default(int))
+                        {
+                            throw new FaultException("Sku out of stock");
+                        }
+
+                        if (currentStock >= item.SkuQtd)
                         {
                             currentStock -= item.SkuQtd;
 
-                            await warehouseClient.SetStockValueAsync(item.SkuId, currentStock);
+                            warehouseClient.SetStockValue(item.SkuId, currentStock);
+                        }
+                        else
+                        {
+                            throw new FaultException("Sku out of stock");
                         }
                     }
                 }

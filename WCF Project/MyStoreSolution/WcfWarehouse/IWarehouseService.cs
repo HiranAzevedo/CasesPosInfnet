@@ -11,6 +11,6 @@ namespace WcfWarehouse
         int GetStockValue(string skuId);
 
         [OperationContract]
-        bool SetStockValue(string skuId, int Qtd);
+        void SetStockValue(string skuId, int Qtd);
     }
 }

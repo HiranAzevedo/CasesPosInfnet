@@ -2,7 +2,7 @@
 
 namespace WcfPrices
 {
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true, ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.PerSession)]
     public class PriceService : IPriceService
     {
         public decimal GetPrice(string skuId)

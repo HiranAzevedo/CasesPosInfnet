@@ -2,7 +2,7 @@
 
 namespace WcfWarehouse
 {
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true, ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.PerSession)]
     public class WarehouseService : IWarehouseService
     {
         public int GetStockValue(string skuId)
@@ -10,9 +10,9 @@ namespace WcfWarehouse
             return WareHouseStorage.GetStockValue(skuId);
         }
 
-        public bool SetStockValue(string skuId, int qtd)
+        public void SetStockValue(string skuId, int qtd)
         {
-            return WareHouseStorage.SetStockValue(skuId, qtd);
+            WareHouseStorage.SetStockValue(skuId, qtd);
         }
     }
 }

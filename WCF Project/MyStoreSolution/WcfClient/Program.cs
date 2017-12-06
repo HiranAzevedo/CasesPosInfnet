@@ -28,22 +28,17 @@ namespace WcfClient
             {
                 taskCollection.Add(Task.Run(() =>
                 {
-                    try
-                    {
-                        DoOrders(taskNumber);
 
-                        Console.WriteLine($"Thread {taskNumber}");
+                    taskNumber++;
 
-                        taskNumber++;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
+                    DoOrders(taskNumber);
+
+                    Console.WriteLine($"Thread {taskNumber}");
+
                 }));
             }
 
-            Task.WhenAll(taskCollection);
+            Task.WaitAll(taskCollection.ToArray());
 
             Console.ReadLine();
         }
@@ -62,7 +57,7 @@ namespace WcfClient
                     {
                     new OrderItem{
                     SkuId = "1",
-                    SkuQtd = 2,
+                    SkuQtd = 1,
                     SkuSellPrice = 50m,
                     }
                     },
@@ -92,7 +87,7 @@ namespace WcfClient
                     {
                     new OrderItem{
                     SkuId = "1",
-                    SkuQtd = 2,
+                    SkuQtd = 1,
                     SkuSellPrice = 10m,
                     }
                     },
@@ -101,10 +96,18 @@ namespace WcfClient
                     StoreName = "MyStore",
                 };
 
-                orderClient.PlaceOrder(order);
-                Console.WriteLine($"Fazendo pedido {taskNumber}");
-                orderClient.CancelOrder(order);
-                Console.WriteLine($"Cancelando {taskNumber}");
+                try
+                {
+                    orderClient.PlaceOrder(order);
+                    Console.WriteLine($"Fazendo pedido {taskNumber}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error creating order {taskNumber} { ex.Message}");
+                }
+
+                //orderClient.CancelOrder(order);
+                //Console.WriteLine($"Cancelando {taskNumber}");
             }
         }
     }
