@@ -2,7 +2,6 @@
 using ProjetoModeloDDD.MVC.Mapper;
 using ProjetoModeloDDD.MVC.ViewModels;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
