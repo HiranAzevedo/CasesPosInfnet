@@ -1,9 +1,11 @@
 ﻿using LibraryFluxControl.Domain.Abstract;
-using System;
 
 namespace LibraryFluxControl.Domain.Domain
 {
-    internal class DigitalBook : DigitalItem
+    public class DigitalBook : DigitalItem
     {
+        public DigitalBook(string name) : base(name)
+        {
+        }
     }
 }

@@ -1,11 +1,17 @@
-﻿using System.Collections.Generic;
-using LibraryFluxControl.Domain.WaitList;
+﻿using LibraryFluxControl.Domain.WaitList;
+using System.Collections.Generic;
 
 namespace LibraryFluxControl.Domain.Abstract
 {
-    internal abstract class PhysicalItem
+    public abstract class PhysicalItem
     {
         private readonly List<AbsWaitPosition> _waitList = new List<AbsWaitPosition>();
+        public readonly string Id;
+
+        protected PhysicalItem(string id)
+        {
+            Id = id;
+        }
 
         public void AddWaitList(AbsWaitPosition customerWaiting)
         {
@@ -25,7 +31,5 @@ namespace LibraryFluxControl.Domain.Abstract
                 waitingCustomer.Update(this);
             }
         }
-
-        internal string ItemId;
     }
 }

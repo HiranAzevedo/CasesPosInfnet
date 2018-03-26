@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryFluxControl.Domain.Abstract;
+﻿using LibraryFluxControl.Domain.Abstract;
 
 namespace LibraryFluxControl.Domain.DownloadLink
 {
     public class S3DownloadSource : DownloadSourceDecorator
     {
+        private const string BaseUrl = "https://s3.amazonaws.com/LibraryFlux/{0}";
+
         public S3DownloadSource(DigitalItem item) : base(item)
         {
         }
 
         public override string GetDownloadLink()
         {
-            throw new NotImplementedException();
+            return string.Format(BaseUrl, Item.Name);
         }
     }
 }

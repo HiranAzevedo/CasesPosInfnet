@@ -1,42 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryFluxControl.Domain.Abstract;
+﻿using LibraryFluxControl.Domain.Abstract;
+using LibraryFluxControl.Domain.Domain;
+using System;
 
 namespace LibraryFluxControl.Domain.Factory
 {
-    abstract class AbsLibraryItemsFactory
+    public abstract class AbsLibraryItemsFactory
     {
-        public abstract DigitalItem GetDigitalItem();
+        public abstract DigitalItem GetDigitalItem(string name);
 
         public abstract PhysicalItem GetPhysicalItem();
     }
 
-    class Library1ItemsFactory : AbsLibraryItemsFactory
+    public class Library1ItemsFactory : AbsLibraryItemsFactory
     {
-        public override DigitalItem GetDigitalItem()
+        public override DigitalItem GetDigitalItem(string name)
         {
-            throw new NotImplementedException();
+            return new DigitalBook(name);
         }
 
         public override PhysicalItem GetPhysicalItem()
         {
-            throw new NotImplementedException();
+            return new TechBook(Guid.NewGuid().ToString());
         }
     }
 
-    class Library2ItemsFactory : AbsLibraryItemsFactory
+    public class Library2ItemsFactory : AbsLibraryItemsFactory
     {
-        public override DigitalItem GetDigitalItem()
+        public override DigitalItem GetDigitalItem(string name)
         {
-            throw new NotImplementedException();
+            return new AudioBook(name);
         }
 
         public override PhysicalItem GetPhysicalItem()
         {
-            throw new NotImplementedException();
+            return new BiologicBook(Guid.NewGuid().ToString());
         }
     }
 }

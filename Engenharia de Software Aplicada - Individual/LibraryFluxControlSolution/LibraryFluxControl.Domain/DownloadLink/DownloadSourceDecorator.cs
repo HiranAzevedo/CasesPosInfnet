@@ -1,21 +1,16 @@
-﻿using System;
-using LibraryFluxControl.Domain.Abstract;
+﻿using LibraryFluxControl.Domain.Abstract;
 
 namespace LibraryFluxControl.Domain.DownloadLink
 {
     public abstract class DownloadSourceDecorator : DigitalItem
     {
-        DigitalItem Item;
+        protected DigitalItem Item;
 
-        protected string SourceName;
-        protected string baseUrl;
-
-        protected DownloadSourceDecorator(DigitalItem item)
+        protected DownloadSourceDecorator(DigitalItem item) : base(item.Name)
         {
             Item = item;
         }
 
         public abstract string GetDownloadLink();
-
     }
 }

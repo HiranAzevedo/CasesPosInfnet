@@ -2,7 +2,7 @@
 
 namespace LibraryFluxControl.Domain.WaitList
 {
-    internal abstract class AbsWaitPosition
+    public abstract class AbsWaitPosition
     {
         public abstract void Update(PhysicalItem item);
     }
