@@ -1,7 +1,7 @@
-﻿using System;
+﻿using LibraryFluxControl.Domain.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using LibraryFluxControl.Domain.Abstract;
 
 namespace LibrayFluxControl.Repository
 {
@@ -11,9 +11,9 @@ namespace LibrayFluxControl.Repository
 
         private readonly List<DigitalLog> _digitalStock = new List<DigitalLog>();
 
-        public bool RetrievePhysicalItem(string itemId, string customerId)
+        public bool RetrievePhysicalItem(PhysicalItem item, string customerId)
         {
-            var itemInStock = _physicalStock.FirstOrDefault(x => x.ItemId.Equals(itemId));
+            var itemInStock = _physicalStock.FirstOrDefault(x => x.ItemId.Equals(item.Id));
 
             if (itemInStock == null)
             {
@@ -30,9 +30,9 @@ namespace LibrayFluxControl.Repository
             return true;
         }
 
-        public bool ReturnPhysicalItem(string itemId, string customerId)
+        public bool ReturnPhysicalItem(PhysicalItem item, string customerId)
         {
-            var itemInStock = _physicalStock.FirstOrDefault(x => x.ItemId.Equals(itemId));
+            var itemInStock = _physicalStock.FirstOrDefault(x => x.ItemId.Equals(item.Id));
 
             if (itemInStock == null)
             {
@@ -45,6 +45,7 @@ namespace LibrayFluxControl.Repository
             }
 
             itemInStock.StockBalance += 1;
+            item.Notify();
             return true;
         }
 

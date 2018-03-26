@@ -3,13 +3,13 @@ using System;
 
 namespace LibraryFluxControl.Domain.WaitList
 {
-    internal class WaiPosition : AbsWaitPosition
+    public class WaitPosition : AbsWaitPosition
     {
         private readonly string _email;
 
-        public WaiPosition(string email)
+        public WaitPosition(Customer customer)
         {
-            _email = email;
+            _email = customer.Email;
         }
 
         public override void Update(PhysicalItem item)

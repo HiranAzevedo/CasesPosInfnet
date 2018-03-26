@@ -48,5 +48,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryFluxControl.Domain\LibraryFluxControl.Domain.csproj">
+      <Project>{75DE5D00-14A6-460E-9CB6-AD36EC04529A}</Project>
+      <Name>LibraryFluxControl.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibrayFluxControl.Repository\LibrayFluxControl.Repository.csproj">
+      <Project>{B8C8366D-0506-44DA-81CE-03CED032B642}</Project>
+      <Name>LibrayFluxControl.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

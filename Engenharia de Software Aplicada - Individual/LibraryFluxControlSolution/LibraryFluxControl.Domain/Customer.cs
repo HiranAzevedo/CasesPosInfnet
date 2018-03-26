@@ -6,6 +6,8 @@ namespace LibraryFluxControl.Domain
     {
         public string Id { get; set; }
 
+        public string Email { get; set; }
+
         public Customer()
         {
             Id = Guid.NewGuid().ToString("N");
