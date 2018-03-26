@@ -1,8 +1,9 @@
 ﻿namespace LibraryFluxControl.Domain.Abstract
 {
-    abstract class DigitalItem
+    public abstract class DigitalItem
     {
-        internal string name;
+        internal string Name;
 
+        internal string ItemId;
     }
 }
